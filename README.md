@@ -9,3 +9,8 @@ sample to-do list in python
 -list task
 -mark tasks
 -saving/loading csv
+
+## How to use
+TODO
+
+## Requirements
