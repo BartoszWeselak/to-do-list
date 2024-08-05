@@ -1,2 +1,11 @@
 # to-do-list
-simple to-do list in python
+sample to-do list in python
+
+## Features
+-simple gui
+-add task
+-remove task
+-change task
+-list task
+-mark tasks
+-saving/loading csv
