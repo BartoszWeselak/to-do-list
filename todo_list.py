@@ -10,6 +10,8 @@ class Task:
     def __str__(self):
         return self.desc
 
+    def change_desc(self,new_desc):
+        self.desc=new_desc
 class ToDoList:
 
     def __init__(self):
@@ -20,14 +22,24 @@ class ToDoList:
         task = Task(desc)
         self.tasks.append(task)
 
-    def list_tasks(self):
+    def list_tasks(self,show_filter="all"):
         for i, task in enumerate(self.tasks):
             desc=task.__str__()
             if task.completed: status="completed"
             else: status="not completed"
-
-            print(f'{i+1} description: {desc} status: {status}')
-
-
+            if show_filter=="all":
+                 print(f'{i+1} description: {desc} status: {status}')
+            elif show_filter=="completed":
+                if status=="completed":
+                    print(f'{i + 1} description: {desc} status: {status}')
+            else:
+                if status == "not completed":
+                    print(f'{i + 1} description: {desc} status: {status}')
     def mark_as_complete(self,index):
+        self.tasks[index].complete()
 
+    def change_desc(self,index,text):
+        self.tasks[index].change_desc(text)
+
+    def remove_task(self,index):
+        self.tasks.pop(index)
