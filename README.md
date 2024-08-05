@@ -1,4 +1,4 @@
-# to-do-list
+# to-do list
 sample to-do list in python
 
 ## Features
