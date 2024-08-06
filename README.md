@@ -11,6 +11,11 @@ sample to-do list in python
 -saving/loading csv  
 
 ## How to use
-TODO
 
+go to to-do-list directory
+run script
+```
+python src\main.py
+
+```
 ## Requirements
