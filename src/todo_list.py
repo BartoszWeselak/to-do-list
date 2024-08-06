@@ -6,6 +6,8 @@ class Task:
     def complete(self):
         self.completed=True
 
+    def uncomplete(self):
+        self.completed=False
 
     def __str__(self):
         return self.desc
@@ -43,3 +45,6 @@ class ToDoList:
 
     def remove_task(self,index):
         self.tasks.pop(index)
+
+    def mark_as_uncomplete(self,index):
+        self.tasks[index].uncomplete()
