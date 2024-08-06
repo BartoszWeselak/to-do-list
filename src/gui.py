@@ -3,15 +3,17 @@ import todo_list as todo
 def main_window(todo_list):
     root = tk.Tk()
     root.title("TODO")
-    root.geometry("400x300")
+    root.geometry("300x700")
+    root.configure(bg='lightblue')
+
     task_list(root,todo_list)
     root.mainloop()
 
 
 def task_list(root,todo_list):
 
-    listbox = tk.Listbox(root, selectmode=tk.SINGLE)
 
+    listbox = tk.Listbox(root, selectmode=tk.SINGLE)
     listbox.pack(pady=10, fill=tk.BOTH, expand=True)
 
     for task in todo_list.tasks:
@@ -19,11 +21,11 @@ def task_list(root,todo_list):
 
     input_text = tk.Text(root,width=30,height=1)
     input_text.pack()
-    a_button = tk.Button(root,width=20, text="add", command=lambda: add_button(todo_list, listbox,input_text.get("1.0", tk.END).strip()))
+    a_button = tk.Button(root,width=20, padx=0, pady=5, font=('Arial', 10), bg='lightgreen', fg='white', text="add", command=lambda: add_button(todo_list, listbox,input_text.get("1.0", tk.END).strip()))
     a_button.pack()
-    d_button=tk.Button(root,width=20,text="delete",command=lambda: del_button(todo_list,listbox))
+    d_button=tk.Button(root,width=20, padx=0, pady=5,font=('Arial', 10), bg='red', fg='white',text="delete",command=lambda: del_button(todo_list,listbox))
     d_button.pack()
-    c_button = tk.Button(root,width=20, text="complete", command=lambda: complete_button(todo_list, listbox))
+    c_button = tk.Button(root,width=20, padx=0, pady=5,font=('Arial', 10), bg='orange', fg='white', text="complete", command=lambda: complete_button(todo_list, listbox))
     c_button.pack()
 
 
