@@ -5,7 +5,8 @@ def main_window(todo_list):
     root.title("TODO")
     root.geometry("300x700")
     root.configure(bg='lightblue')
-
+    banner = tk.Label(text="TEST", font=('Arial', 10), fg='blue')
+    banner.pack()
     task_list(root,todo_list)
     root.mainloop()
 
