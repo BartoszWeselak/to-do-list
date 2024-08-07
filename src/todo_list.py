@@ -68,4 +68,3 @@ class ToDoList:
         else:
             print("Nie wybrano ścieżki do zapisu.")
 
-gi
