@@ -1,3 +1,6 @@
+import csv
+import tkinter as tk
+from tkinter import filedialog
 class Task:
     def __init__(self,desc):
         self.desc=desc
@@ -50,10 +53,17 @@ class ToDoList:
         self.tasks[index].uncomplete()
 
     def save_to_csv(self):
-        path=""
-        for task in self.tasks:
-            if task.completed:
-                status = "completed"
-            else:
-                status = "not completed"
-            print(f'{task.desc} {status}')
+        root = tk.Tk()
+        root.withdraw()
+        path = filedialog.asksaveasfilename(defaultextension=".csv",
+                                            filetypes=[("CSV files", "*.csv"), ("All files", "*.*")])
+        if path:
+            with open(path, mode='w', newline='', encoding='utf-8') as file:
+                writer = csv.writer(file)
+                writer.writerow(['Description', 'Status'])
+                for task in self.tasks:
+                    status = "completed" if task.completed else "not completed"
+                    writer.writerow([task.desc, status])
+                    print(f'{task.desc} {status}')
+        else:
+            print("Nie wybrano ścieżki do zapisu.")
