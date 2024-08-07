@@ -1,10 +1,21 @@
 import tkinter as tk
+from tkinter import Menu
+
 import todo_list as todo
 def main_window(todo_list):
     root = tk.Tk()
     root.title("TODO")
     root.geometry("300x700")
     root.configure(bg='lightblue')
+    menu_bar = Menu(root)
+    root.config(menu=menu_bar)
+    file_menu = Menu(menu_bar, tearoff=0)
+    menu_bar.add_cascade(label="File", menu=file_menu)
+
+    file_menu.add_command(label="Save CSV", command=lambda: todo_list.save_to_csv())
+    file_menu.add_separator()
+    file_menu.add_command(label="Exit", command=root.quit)
+
     banner = tk.Label(root, text="TO-DO List",
                       font=('Arial', 24, 'bold'),
                       fg='white',

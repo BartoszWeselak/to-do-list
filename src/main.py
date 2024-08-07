@@ -10,4 +10,4 @@ if __name__ == "__main__":
     todo_list.mark_as_complete(1)
     todo_list.change_desc(1,"Sample Task nr 2")
     gui.main_window(todo_list)
-    todo_list.save_to_csv()
+
