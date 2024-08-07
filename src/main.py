@@ -9,6 +9,5 @@ if __name__ == "__main__":
     todo_list.add_task(task)
     todo_list.mark_as_complete(1)
     todo_list.change_desc(1,"Sample Task nr 2")
-    todo_list.list_tasks()
     gui.main_window(todo_list)
-    todo_list.list_tasks()
+    todo_list.save_to_csv()

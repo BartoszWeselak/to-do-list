@@ -50,4 +50,10 @@ class ToDoList:
         self.tasks[index].uncomplete()
 
     def save_to_csv(self):
-        print("debug")
+        path=""
+        for task in self.tasks:
+            if task.completed:
+                status = "completed"
+            else:
+                status = "not completed"
+            print(f'{task.desc} {status}')

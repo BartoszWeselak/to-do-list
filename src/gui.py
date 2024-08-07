@@ -31,7 +31,9 @@ def task_list(root,todo_list):
     a_button.pack()
     d_button=tk.Button(root,width=20, padx=2, pady=2,font=('Arial', 12), bg='red', fg='white',text=f"({minus}) Delete ",command=lambda: del_button(todo_list,listbox))
     d_button.pack()
-    c_button = tk.Button(root,width=20, padx=2, pady=2,font=('Arial', 12), bg='orange', fg='white', text=f"({thumbs_up}) Complete", command=lambda: complete_button(todo_list, listbox))
+    f_button = tk.Button(root,width=20, padx=2, pady=2,font=('Arial', 12), bg='orange', fg='white', text=f"({thumbs_up}) Finish", command=lambda: finish_button(todo_list, listbox))
+    f_button.pack()
+    c_button =tk.Button(root,width=20, padx=2, pady=2,font=('Arial', 12), bg='blue', fg='white', text=f"({thumbs_up}) Change", command=lambda: change_button(todo_list, listbox,input_text.get("1.0", tk.END).strip()))
     c_button.pack()
 
 def del_button(todo_list,listbox):
@@ -40,7 +42,7 @@ def del_button(todo_list,listbox):
         todo_list.remove_task(selected_index[0])
         listbox.delete(selected_index)
 
-def complete_button(todo_list,listbox):
+def finish_button(todo_list,listbox):
     selected_index = listbox.curselection()
     if selected_index:
         task=todo_list.tasks[selected_index[0]]
@@ -56,6 +58,13 @@ def complete_button(todo_list,listbox):
 
 def add_button(todo_list,listbox,text="debug"):
     if len(text)>0:
-        task=todo_list.add_task(text)
-        index=listbox.size()
+        todo_list.add_task(text)
         listbox.insert(tk.END,f'{text} (not complete)')
+
+def change_button(todo_list,listbox,text="debug"):
+    selected_index = listbox.curselection()
+    if selected_index:
+        if len(text) > 0:
+            todo_list.change_desc(selected_index[0],text)
+            listbox.delete(selected_index)
+            listbox.insert(selected_index, f'{text} (not complete)')
