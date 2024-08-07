@@ -6,7 +6,6 @@ class TestTask(unittest.TestCase):
         task = Task("Test Task")
         self.assertEqual(task.desc, "Test Task")
         self.assertFalse(task.completed)
-
     def test_task_complete(self):
         task = Task("Test Task")
         task.complete()

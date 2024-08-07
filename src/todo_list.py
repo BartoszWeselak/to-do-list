@@ -67,3 +67,5 @@ class ToDoList:
                     print(f'{task.desc} {status}')
         else:
             print("Nie wybrano ścieżki do zapisu.")
+
+gi
