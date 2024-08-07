@@ -38,13 +38,14 @@ def task_list(root,todo_list):
     thumbs_up = "\U0001F44D"
     plus ="\u002B"
     minus="\u2212"
+    pencil = "\U0000270F"
     a_button = tk.Button(root,width=20, padx=2, pady=2, font=('Arial', 12), bg='lightgreen', fg='white', text=f"({plus}) Add ", command=lambda: add_button(todo_list, listbox,input_text.get("1.0", tk.END).strip()))
     a_button.pack()
     d_button=tk.Button(root,width=20, padx=2, pady=2,font=('Arial', 12), bg='red', fg='white',text=f"({minus}) Delete ",command=lambda: del_button(todo_list,listbox))
     d_button.pack()
     f_button = tk.Button(root,width=20, padx=2, pady=2,font=('Arial', 12), bg='orange', fg='white', text=f"({thumbs_up}) Finish", command=lambda: finish_button(todo_list, listbox))
     f_button.pack()
-    c_button =tk.Button(root,width=20, padx=2, pady=2,font=('Arial', 12), bg='blue', fg='white', text=f"({thumbs_up}) Change", command=lambda: change_button(todo_list, listbox,input_text.get("1.0", tk.END).strip()))
+    c_button =tk.Button(root,width=20, padx=2, pady=2,font=('Arial', 12), bg='blue', fg='white', text=f"({pencil}) Change", command=lambda: change_button(todo_list, listbox,input_text.get("1.0", tk.END).strip()))
     c_button.pack()
 
 def del_button(todo_list,listbox):
