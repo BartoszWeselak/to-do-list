@@ -1,6 +1,7 @@
 import csv
 import tkinter as tk
 from tkinter import filedialog
+import gui
 class Task:
     def __init__(self,desc):
         self.desc=desc
@@ -65,6 +66,4 @@ class ToDoList:
                     status = "completed" if task.completed else "not completed"
                     writer.writerow([task.desc, status])
                     print(f'{task.desc} {status}')
-        else:
-            print("Nie wybrano ścieżki do zapisu.")
 
