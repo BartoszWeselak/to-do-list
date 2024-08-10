@@ -20,3 +20,4 @@ run script
 python src\main.py
 ```
 ## Requirements
+-Python 3.10.4
